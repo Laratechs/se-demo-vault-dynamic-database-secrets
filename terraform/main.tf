@@ -49,3 +49,11 @@ resource "vault_database_secret_backend_role" "app" {
   db_name             = vault_database_secret_backend_connection.postgres.name
   creation_statements = ["CREATE ROLE \"{{name}}\" WITH LOGIN PASSWORD '{{password}}' VALID UNTIL '{{expiration}}';"]
 }
+
+resource "vault_audit" "test" {
+  type = "file"
+
+  options = {
+    file_path = "/tmp/vault_audit.log"
+  }
+}
