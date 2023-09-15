@@ -5,13 +5,6 @@ terraform {
       version = "~> 3.20.0"
     }
   }
-
-  cloud {
-    organization = "laratechs"
-    workspaces {
-      name = "se-demo-vault-dynamic-database-secrets"
-    }
-  }
 }
 
 provider "vault" {}
