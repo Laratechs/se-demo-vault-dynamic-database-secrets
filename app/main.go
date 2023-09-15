@@ -58,7 +58,8 @@ func generateCredentials() string {
 
 	s, err := client.Secrets.DatabaseGenerateCredentials(ctx, "app", vault.WithMountPath("db"))
 	if err != nil {
-		log.Println(err)
+		log.Println("WARN - Invalid VAULT_TOKEN provided!")
+		return ""
 	}
 
 	return fmt.Sprintln(s.Data["username"])
